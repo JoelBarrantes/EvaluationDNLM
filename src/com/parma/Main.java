@@ -19,8 +19,9 @@ public class Main {
     Crossover crossover = Crossover.SIMPLE;
     int mIndividuos = 10;
     float mutPerc = 0.05f;
+    int mGenerations = 25;
     
-    if (args.length == 3) {
+    if (args.length == 4) {
       
       switch (args[0]) {
         case "c":
@@ -34,6 +35,8 @@ public class Main {
       }
       mIndividuos = Integer.parseInt(args[1]);
       mutPerc = (float) Integer.parseInt(args[2]) / 100.0f;
+      mGenerations = Integer.parseInt(args[3]);
+      
     }
     
     try {
@@ -49,7 +52,7 @@ public class Main {
       settings.setUpperSigmaR(500);
       settings.setLowerLambda(1);
       settings.setUpperLambda(30);
-      settings.setMaxGenerations(25); 
+      settings.setMaxGenerations(mGenerations); 
       settings.setMaxIndividuals(mIndividuos);//ARG
       settings.setMutationPerc((float) mutPerc);//ARG
       settings.setMutationType(Mutation.RANDOM_BIT);
@@ -64,23 +67,29 @@ public class Main {
       settings.setLocation(absdir);
 
       ImageHandler imageHandler = new ImageHandler();
-      Mat imagen1 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/001.png");
-      Mat imagengd1 = imageHandler.leerImagenGrises(absdir + "images/GT/001.png");
+      Mat imagen1 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/1.png");
+      Mat imagengd1 = imageHandler.leerImagenGrises(absdir + "images/GT/1.png");
 
       settings.addToOriginalImages(imagen1);
       settings.addToGroundtruthImages(imagengd1);
 
-      Mat imagen2 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/255.png");
-      Mat imagengd2 = imageHandler.leerImagenGrises(absdir + "images/GT/255.png");
+      Mat imagen2 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/2.png");
+      Mat imagengd2 = imageHandler.leerImagenGrises(absdir + "images/GT/2.png");
 
       settings.addToOriginalImages(imagen2);
       settings.addToGroundtruthImages(imagengd2);
 
-      Mat imagen3 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/577.png");
-      Mat imagengd3 = imageHandler.leerImagenGrises(absdir + "images/GT/577.png");
+      Mat imagen3 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/3.png");
+      Mat imagengd3 = imageHandler.leerImagenGrises(absdir + "images/GT/3.png");
 
       settings.addToOriginalImages(imagen3);
       settings.addToGroundtruthImages(imagengd3);
+      
+      Mat imagen4 = imageHandler.leerImagenGrises(absdir + "images/Recortadas/4.png");
+      Mat imagengd4 = imageHandler.leerImagenGrises(absdir + "images/GT/4.png");
+
+      settings.addToOriginalImages(imagen4);
+      settings.addToGroundtruthImages(imagengd4);
 
       GaCalibration calibration = new GaCalibration(settings);
 
