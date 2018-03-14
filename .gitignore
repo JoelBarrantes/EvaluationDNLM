@@ -3,5 +3,8 @@
 bin/com/parma/genetics/ParamIndividual.class
 *.class
 *.classsrc/com/parma/genetics/ParamIndividualTest.java
+<<<<<<< HEAD
 *.so
 *.dll
+=======
+>>>>>>> 8ac1d37c3b993a865abf65c9230d596384777d4c

@@ -19,6 +19,7 @@ public class FitnessEval {
     this.segTechnique = seg;
   }
 
+
   public float evaluate(ParamIndividual p, Mat pOriginal, Mat pGroundtruth, String path) {
 
     String absdir = "";
@@ -27,6 +28,7 @@ public class FitnessEval {
     }
     
     ImageHandler ih = new ImageHandler();
+
     int w = p.getW();
     int w_n = p.getW_n();
     int sigma_r = p.getSigma_r();
@@ -51,12 +53,13 @@ public class FitnessEval {
         pGroundtruth.cols() - snipping - 2);
 
     // segmentation of the filtered image
+
     ih.guardarImagen(absdir+"images/", path+"_p", "png", filteredImage);
     ih.guardarImagen(absdir+"images/", path+"_g", "png", pGroundtruth);
     
     filteredImage = applySegmentation(filteredImage);
     ih.guardarImagen(absdir+"images/", path+"_s", "png", filteredImage);
-    
+
     // calculate fitness with the specified similarity check function
     float fitness = getFitnessResult(filteredImage, pGroundtruth);
 
