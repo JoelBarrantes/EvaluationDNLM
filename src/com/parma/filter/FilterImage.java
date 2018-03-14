@@ -20,8 +20,8 @@ public class FilterImage {
     
     String imagePath = args[0];
     
-    Mat image = ih.leerImagenGrises(absdir+"CLAHE/" + imagePath +".tif");
-    Mat groundtruth = ih.leerImagenGrises(absdir+"GT/" + imagePath +".png");
+    Mat image = ih.leerImagenGrises(absdir+"images/CLAHE/" + imagePath +".tif");
+    Mat groundtruth = ih.leerImagenGrises(absdir+"images/GT/" + imagePath +".png");
     
     ParamIndividual p = new ParamIndividual();
     p.setW(Integer.valueOf(args[1]));
