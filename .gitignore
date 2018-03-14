@@ -1,0 +1,7 @@
+
+*.class
+bin/com/parma/genetics/ParamIndividual.class
+*.class
+*.classsrc/com/parma/genetics/ParamIndividualTest.java
+*.so
+*.dll
